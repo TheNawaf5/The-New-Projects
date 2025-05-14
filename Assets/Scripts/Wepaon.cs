@@ -34,6 +34,14 @@ public class Wepaon : MonoBehaviour
     public int magazineSize, bulletsLeft;
     public bool isReloading;
 
+    public enum WeaponModel
+    {
+        Pistol1911,
+        M16
+    }
+
+    public WeaponModel thisWeaponModel;
+
     public enum ShootingMode
     {
         Single,
@@ -101,7 +109,9 @@ public class Wepaon : MonoBehaviour
         muzzleEffect.GetComponent<ParticleSystem>().Play();
         animator.SetTrigger("RECOIL");
 
-        SoundManager.Instance.shootingSound1911.Play();
+        //SoundManager.Instance.shootingSound1911.Play();
+
+        SoundManager.Instance.PlayShootingSound(thisWeaponModel);
 
         readyToShoot = false;
 
@@ -138,7 +148,8 @@ public class Wepaon : MonoBehaviour
 
     private void Reload()
     {
-        SoundManager.Instance.reloadingSound1911.Play();
+        // SoundManager.Instance.reloadingSound1911.Play();
+        SoundManager.Instance.PlayReloadSound(thisWeaponModel);
 
         animator.SetTrigger("RELOAD");
 
