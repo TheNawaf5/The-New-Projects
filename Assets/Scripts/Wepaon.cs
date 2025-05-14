@@ -140,6 +140,8 @@ public class Wepaon : MonoBehaviour
     {
         SoundManager.Instance.reloadingSound1911.Play();
 
+        animator.SetTrigger("RELOAD");
+
         isReloading = true;
         Invoke("ReloadCompleted", reloadTime);
     }
