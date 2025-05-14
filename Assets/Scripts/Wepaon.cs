@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Wepaon : MonoBehaviour
 {
-    public Camera playerCamera;
 
     // Shooting
     public bool isShooting, readyToShoot;
@@ -25,6 +24,8 @@ public class Wepaon : MonoBehaviour
     public Transform bulletSpawn;
     public float bulletVelocity = 30;
     public float bulletPrefabLifeTime = 3f;
+
+    public GameObject muzzleEffect;
 
     public enum ShootingMode
     {
@@ -62,6 +63,9 @@ public class Wepaon : MonoBehaviour
     }
     private void FireWeapon()
     {
+
+        muzzleEffect.GetComponent<ParticleSystem>().Play();
+
         readyToShoot = false;
 
         Vector3 shootingDirection = CalculateDirectionAndSpread().normalized;
@@ -102,7 +106,7 @@ public class Wepaon : MonoBehaviour
     public Vector3 CalculateDirectionAndSpread()
     {
         // Shooting from the middle of the screen to check
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
         Vector3 targetPoint;
