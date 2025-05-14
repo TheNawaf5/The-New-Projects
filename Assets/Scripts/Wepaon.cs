@@ -26,6 +26,7 @@ public class Wepaon : MonoBehaviour
     public float bulletPrefabLifeTime = 3f;
 
     public GameObject muzzleEffect;
+    private Animator animator;
 
     public enum ShootingMode
     {
@@ -39,6 +40,7 @@ public class Wepaon : MonoBehaviour
     {
         readyToShoot = true;
         burstBulletsLeft = bulletsPerBurst;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -65,6 +67,7 @@ public class Wepaon : MonoBehaviour
     {
 
         muzzleEffect.GetComponent<ParticleSystem>().Play();
+        animator.SetTrigger("RECOIL");
 
         readyToShoot = false;
 
