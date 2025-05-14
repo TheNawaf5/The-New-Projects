@@ -7,11 +7,14 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; set; }
 
-    public AudioSource shootingSound1911;
+    public AudioSource ShootingChannel;
+
+    public AudioClip P1911Shot;
+    public AudioClip M16Shot;
+
+    public AudioSource reloadingSoundM16;
     public AudioSource reloadingSound1911;
 
-    public AudioSource shootingSoundM16;
-    public AudioSource reloadingSoundM16;
     public AudioSource emptyManagizeSound1911;
     private void Awake()
     {
@@ -30,10 +33,10 @@ public class SoundManager : MonoBehaviour
         switch (weapon)
         {
             case WeaponModel.Pistol1911:
-                shootingSound1911.Play();
+                ShootingChannel.PlayOneShot(P1911Shot);
                 break;
             case WeaponModel.M16:
-                shootingSoundM16.Play();
+                ShootingChannel.PlayOneShot(M16Shot);
                 break;
         }
     }
