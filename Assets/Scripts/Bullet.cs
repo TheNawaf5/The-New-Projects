@@ -23,6 +23,12 @@ public class Bullet : MonoBehaviour
 
            Destroy(gameObject);
         }
+
+        if (objectWeHit.gameObject.CompareTag("Beer"))
+        {
+           print("hit a beer bottle");
+           objectWeHit.gameObject.GetComponent<BeerBottle>().Shatter();
+        }
     }
     
     void CreateBulletImpactEffect(Collision objectWeHit)
