@@ -29,7 +29,7 @@ public class Wepaon : MonoBehaviour
     public float bulletPrefabLifeTime = 3f;
 
     public GameObject muzzleEffect;
-    private Animator animator;
+    internal Animator animator;
 
     //Loading
     public float reloadTime;
@@ -66,8 +66,11 @@ public class Wepaon : MonoBehaviour
 
     void Update()
     {
+
+        
       if (isActiveWeapon)
       {
+        GetComponent<Outline>().enabled = false;
 
         if (bulletsLeft == 0 && isShooting)
         {
