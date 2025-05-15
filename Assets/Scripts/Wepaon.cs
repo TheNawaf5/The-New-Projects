@@ -106,10 +106,10 @@ public class Wepaon : MonoBehaviour
             FireWeapon();
         }
 
-        if (AmmoManager.Instance.ammoDisplay != null)
-        {
-            AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
-        }
+        //if (AmmoManager.Instance.ammoDisplay != null)
+        //{
+           // AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
+       // }
       }
 
     }
