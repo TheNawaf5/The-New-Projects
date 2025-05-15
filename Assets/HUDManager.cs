@@ -73,17 +73,27 @@ public class HUDManager : MonoBehaviour
 
         private Sprite GetWeaponSprite(Wepaon.WeaponModel model)
         {
-            switch (model)
-            {
-                case Wepaon.WeaponModel.Pistol1911:
-                    return Instantiate(Resources.Load<GameObject>("Pistol1911_Weapon")).GetComponent<SpriteRenderer>().sprite;
+        switch (model)
+    {
+        case Wepaon.WeaponModel.Pistol1911:
+            return Resources.Load<Sprite>("Pistol1911_Weapon");
+        case Wepaon.WeaponModel.M16:
+            return Resources.Load<Sprite>("M16_Weapon");
+        default:
+            return null;
+    }
+                    
+                    //switch (model)
+            //{
+               // case Wepaon.WeaponModel.Pistol1911:
+                    //return Instantiate(Resources.Load<GameObject>("Pistol1911_Weapon")).GetComponent<SpriteRenderer>().sprite;
 
-                case Wepaon.WeaponModel.M16:
-                    return Instantiate(Resources.Load<GameObject>("M16_Weapon")).GetComponent<SpriteRenderer>().sprite;
+                //case Wepaon.WeaponModel.M16:
+                   // return Instantiate(Resources.Load<GameObject>("M16_Weapon")).GetComponent<SpriteRenderer>().sprite;
 
-                default:
-                    return null;
-            }
+               //default:
+                    //return null;
+            
         }
         private Sprite GetAmmoSprite(Wepaon.WeaponModel model)
         {

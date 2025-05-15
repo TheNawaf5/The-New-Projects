@@ -7,6 +7,9 @@ TagManager:
   - Target
   - Wall
   - Beer
+  - Zombie
+  - Enemy
+  - Waypoints
   layers:
   - Default
   - TransparentFX
