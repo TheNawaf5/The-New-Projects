@@ -8,6 +8,7 @@ public class Wepaon : MonoBehaviour
 {
 
     public bool isActiveWeapon;
+    public int weaponDamage;
 
     // Shooting
     public bool isShooting, readyToShoot;
@@ -131,6 +132,9 @@ public class Wepaon : MonoBehaviour
         
         // Instantine the bullet
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+
+        Bullet bul = bullet.GetComponent<Bullet>();
+        bul.bulletDamage = weaponDamage;
 
         // Pointing the bullets to face the shooting direction
         bullet.transform.forward = shootingDirection;
