@@ -7,6 +7,8 @@ using UnityEngine;
 public class Wepaon : MonoBehaviour
 {
 
+    public bool isActiveWeapon;
+
     // Shooting
     public bool isShooting, readyToShoot;
     bool allowReset = true;
@@ -33,6 +35,9 @@ public class Wepaon : MonoBehaviour
     public float reloadTime;
     public int magazineSize, bulletsLeft;
     public bool isReloading;
+
+    public Vector3 spawnPosition;
+    public Vector3 spawnRotation;
 
     public enum WeaponModel
     {
@@ -61,6 +66,8 @@ public class Wepaon : MonoBehaviour
 
     void Update()
     {
+      if (isActiveWeapon)
+      {
 
         if (bulletsLeft == 0 && isShooting)
         {
@@ -100,6 +107,7 @@ public class Wepaon : MonoBehaviour
         {
             AmmoManager.Instance.ammoDisplay.text = $"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
         }
+      }
 
     }
     private void FireWeapon()
